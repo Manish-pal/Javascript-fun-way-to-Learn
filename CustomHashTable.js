@@ -56,6 +56,33 @@ class HashTable {
     }
 
   }
+ 
+  keys(){
+
+    if(!this.data.length) {
+      return undefined;
+    }
+    const keysArray = [];
+    console.log(this.data.length);
+    for (let i = 0; i < this.data.length; i++){
+      
+      if(this.data[i] && this.data[i].length){
+        console.log(this.data[i].length);
+        if(this.data.length > 1) {
+            for(let j = 0 ; j < this.data[i].length; j++) {
+                console.log('pushing' + this.data[i][j]);
+              keysArray.push(this.data[i][j][0]);
+            }
+        } else {
+              console.log('not');
+              keysArray.push(this.data[i][0]);
+        }
+      }
+    }
+    return keysArray;
+  }
+}
+  
 }
 
 const myHashTable = new HashTable(50);
