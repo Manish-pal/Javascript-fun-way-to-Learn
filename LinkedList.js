@@ -120,3 +120,6 @@ myLinkedList.insert(20, 77);
 myLinkedList.printList()
 myLinkedList.remove(2);
 myLinkedList.printList()
+
+
+myLinkedList.reverse()
