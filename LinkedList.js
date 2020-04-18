@@ -84,6 +84,31 @@ class LinkedList {
     }
     return currentNode;
   }
+  
+  remove() {
+    
+    if(!this.head.next){
+        return this.head;
+    }
+      let first = this.head; //sets the head node to first
+      this.tail = this.head; //assigning the head node as tail
+      let second = first.next; //  2nd node's reference 
+      while(second) {
+        let temp = second.next;
+        second.next = first; //reverses the 2nd node's pointer to the first
+        first = second; // now the second has become the first
+        second = temp;  // the temp node has became the second.
+        /* 
+          initial :  1 -> 10 -> 19 -> 88 -> null
+                  first second
+          Now:       1 <- 10 -> 19 -> 88 -> null
+                        first  second
+        */
+      }
+      this.head.next = null // making the head node's next ref. to null
+      this.head = first;    // assigning the head to first which is 88 now
+      return this.printList();
+  }
 }
 
 let myLinkedList = new LinkedList(10);
